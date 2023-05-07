@@ -8,7 +8,7 @@ import (
 	_ "github.com/laterius/service_architecture_hw3/app/migrations"
 	dblogger "gorm.io/gorm/logger"
 
-	"gorm.io/driver/postgres"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
 	"github.com/jinzhu/configor"
@@ -21,7 +21,7 @@ func main() {
 		panic(err)
 	}
 
-	db, err := gorm.Open(postgres.New(postgres.Config{
+	db, err := gorm.Open(mysql.New(mysql.Config{
 		DSN: dbrepo.Dsn(cfg.Db),
 	}), &gorm.Config{
 		Logger: dblogger.Default.LogMode(dblogger.Info),

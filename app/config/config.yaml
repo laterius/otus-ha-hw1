@@ -1,8 +1,9 @@
 db:
   host: db
-  port: 5432
-  dbname: postgres
-  user: postgres
+  port: 3306
+  dbname: mysql
+  user: mysql
+  password: mysql
 
 http:
   port: 8000

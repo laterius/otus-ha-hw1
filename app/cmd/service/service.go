@@ -9,7 +9,7 @@ import (
 	"github.com/gofiber/template/html"
 	"github.com/jinzhu/configor"
 	"github.com/laterius/service_architecture_hw3/app/internal/transport/server/httpmw"
-	"gorm.io/driver/postgres"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	dblogger "gorm.io/gorm/logger"
 
@@ -27,7 +27,7 @@ func main() {
 		panic(err)
 	}
 
-	db, err := gorm.Open(postgres.New(postgres.Config{
+	db, err := gorm.Open(mysql.New(mysql.Config{
 		DSN: dbrepo.Dsn(cfg.Db),
 	}), &gorm.Config{
 		Logger: dblogger.Default.LogMode(dblogger.Info),

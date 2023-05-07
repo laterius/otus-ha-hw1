@@ -6,13 +6,14 @@ import (
 )
 
 func Dsn(cfg domain.Db) string {
-	connString := fmt.Sprintf("host=%s port=%s user=%s dbname=%s password=%s",
-		cfg.Host,
-		cfg.Port,
+	//user:pass@tcp(127.0.0.1:3306)/dbname
+	connString := fmt.Sprintf("%s:%s@tcp(db:%s)/%s",
 		cfg.User,
-		cfg.DbName,
 		cfg.Password,
+		cfg.Port,
+		cfg.DbName,
 	)
+
 	if cfg.Extras != "" {
 		connString += " " + cfg.Extras
 	}
