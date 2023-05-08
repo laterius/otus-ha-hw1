@@ -27,3 +27,7 @@
    * Кэширование
 6. Фронт опционален
 
+**Запуск**
+1. make docker-start
+2. make docker-stop
+3. make newman
