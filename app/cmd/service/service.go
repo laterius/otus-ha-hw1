@@ -8,10 +8,9 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/gofiber/template/html"
 	"github.com/jinzhu/configor"
+	"github.com/jmoiron/sqlx"
 	"github.com/laterius/service_architecture_hw3/app/internal/transport/server/httpmw"
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
-	dblogger "gorm.io/gorm/logger"
+	"github.com/pkg/errors"
 
 	"github.com/laterius/service_architecture_hw3/app/internal/domain"
 	"github.com/laterius/service_architecture_hw3/app/internal/service"
@@ -27,14 +26,19 @@ func main() {
 		panic(err)
 	}
 
-	db, err := gorm.Open(mysql.New(mysql.Config{
-		DSN: dbrepo.Dsn(cfg.Db),
-	}), &gorm.Config{
-		Logger: dblogger.Default.LogMode(dblogger.Info),
-	})
+	db, err := sqlx.Connect("mysql", dbrepo.Dsn(cfg.Db))
 	if err != nil {
-		panic(err)
+		panic(errors.Wrap(err, "failed to connect to mysql"))
 	}
+
+	//db, err := gorm.Open(mysql.New(mysql.Config{
+	//	DSN: dbrepo.Dsn(cfg.Db),
+	//}), &gorm.Config{
+	//	Logger: dblogger.Default.LogMode(dblogger.Info),
+	//})
+	//if err != nil {
+	//	panic(err)
+	//}
 
 	userRepo := dbrepo.NewUserRepo(db)
 	userService := service.NewUserService(userRepo)

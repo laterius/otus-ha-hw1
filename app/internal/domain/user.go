@@ -15,19 +15,19 @@ func (t UserId) Validate() error {
 
 type User struct {
 	Id           UserId
-	Username     string
-	FirstName    string
-	LastName     string
-	Email        string
-	Phone        string
-	Age          int64
-	Gender       string
-	Hobby        string
-	City         string
-	Password     string `gorm:"-"`
-	PasswordHash string `gorm:"not null"`
-	Remember     string `gorm:"-"`
-	RememberHash string `gorm:"not null;unique_index"`
+	Username     string `db:"username"`
+	FirstName    string `db:"first_name"`
+	LastName     string `db:"last_name"`
+	Email        string `db:"email"`
+	Phone        string `db:"phone"`
+	Age          int64  `db:"age"`
+	Gender       string `db:"gender"`
+	Hobby        string `db:"hobby"`
+	City         string `db:"city"`
+	Password     string
+	PasswordHash string `db:"password_hash"`
+	Remember     string `db:"remember"`
+	RememberHash string `db:"remember_hash"`
 }
 
 type UserPartialData = types.Kv

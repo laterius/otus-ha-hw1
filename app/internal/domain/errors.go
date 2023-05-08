@@ -1,10 +1,11 @@
 package domain
 
-import "errors"
+import "github.com/pkg/errors"
 
 var (
-	ErrUserNotFound    = errors.New("user not found")
-	ErrInvalidUserId   = errors.New("invalid user id")
-	_                  = errors.New("internal error")
-	ErrInvalidPassHash = errors.New("invalid password hash")
+	ErrUserNotFound      = errors.New("user not found")
+	ErrUserAlreadyExists = errors.New("user already exists")
+	ErrInvalidUserId     = errors.New("invalid user id")
+	_                    = errors.New("internal error")
+	ErrInvalidPassHash   = errors.New("invalid password hash")
 )

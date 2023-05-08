@@ -1,0 +1,12 @@
+db:
+  host: db
+  port: 3306
+  dbname: mysql
+  user: mysql
+  password: mysql
+
+http:
+  port: 8000
+
+app:
+  env: prod

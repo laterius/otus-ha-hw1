@@ -17,7 +17,6 @@ func init() {
 		City         string `json:"city"`
 		Phone        string `json:"phone"`
 		Age          int64  `json:"age"`
-		Password     string `json:"password"`
 		PasswordHash string `json:"passwordHash"`
 		Remember     string `json:"remember"`
 		RememberHash string `json:"rememberHash"`

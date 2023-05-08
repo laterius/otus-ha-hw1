@@ -10,6 +10,7 @@ require (
 	github.com/gofiber/fiber/v2 v2.44.0
 	github.com/gofiber/template v1.8.1
 	github.com/jinzhu/configor v1.2.1
+	github.com/jmoiron/sqlx v1.3.5
 	github.com/prometheus/client_golang v1.13.0
 	github.com/sirupsen/logrus v1.6.0
 	golang.org/x/crypto v0.7.0
@@ -31,6 +32,7 @@ require (
 	github.com/jinzhu/now v1.1.4 // indirect
 	github.com/klauspost/compress v1.16.3 // indirect
 	github.com/konsorten/go-windows-terminal-sequences v1.0.3 // indirect
+	github.com/lib/pq v1.10.2 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.18 // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
